@@ -1,0 +1,20 @@
+
+{% block content %}
+<h1>Team members</h1>
+
+<h2><a href="{% url 'teammembers:teammembers-create' %}"> Add</a></h2>
+
+<h3> You have {{ object_list.count }} team members</h3>
+
+{% for instance in object_list %}
+	<p> ------------------------- </p>
+	{% if instance.admin_status == True %}
+		<p> <a href="{% url 'teammembers:teammembers-edit' instance.id %}">{{instance.first_name }} {{instance.last_name}}</a>(admin)</p>
+	{% else %}
+		<p> <a href="{% url 'teammembers:teammembers-edit' instance.id %}">{{ instance.first_name }} {{instance.last_name}}</a></p> 
+	{% endif %}
+	<p>{{instance.phone}}</p>
+	<p>{{instance.email}}</p>
+{% endfor %}
+{% endblock %}
+

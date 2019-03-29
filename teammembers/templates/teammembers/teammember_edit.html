@@ -1,0 +1,28 @@
+
+<form  action='.'method='POST'>{% csrf_token %} 
+	<!--
+	{{ form.as_p }}
+	-->
+	
+	<h1>Add a team member</h1>
+	<h3>Set email, location, and role.</h3>
+
+	<p>---------------------------------------------</p>
+	
+	<h4>Info</h4>
+	<input type='text' name='first_name' value="{{ object.first_name }}"/>
+	<input type='text' name='last_name' value="{{ object.last_name }}"/>
+	<input type='text' name='email' value="{{ object.email }}"/>
+	<input type='text' name='phone' value="{{ object.phone }}"/>
+	<h4>Role</h4>
+	{% if object.admin_status == True %}
+		<input type='checkbox' name='admin_status' value="{{ object.admin_status }}" checked/> Admin: Can delete members<br>
+	{% else %}
+		<input type='checkbox' name='admin_status' value="{{ object.admin_status }}"/> Admin: Can delete members<br>
+	{% endif %}
+	
+<p> <a href="{% url 'teammembers:teammembers-delete' object.id %}">Delete</a></p>
+<input type='submit' value='Save'/>
+
+
+</form>

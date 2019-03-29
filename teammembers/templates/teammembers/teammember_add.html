@@ -1,0 +1,23 @@
+
+
+<form  action='.'method='POST'>{% csrf_token %} 
+	
+	{{ form.as_p }}
+	
+	<!--
+	<h1>Add a team member</h1>
+	<h3>Set email, location, and role.</h3>
+
+	<p>---------------------------------------------</p>
+	
+	<h4>Info</h4>
+	<input type='text' name='first_name' placeholder="First name"/>
+	<input type='text' name='last_name' placeholder="Last name"/>
+	<input type='text' name='email' placeholder="Email"/>
+	<input type='text' name='phone' placeholder="Phone number"/>
+	<h4>Role</h4>
+	<input type='checkbox' name='admin_status'> Admin: Can delete members<br>
+	-->
+<input type='submit' value='Save' />
+
+</form>
