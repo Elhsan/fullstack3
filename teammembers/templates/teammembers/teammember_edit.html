@@ -21,8 +21,8 @@
 		<input type='checkbox' name='admin_status' value="{{ object.admin_status }}"/> Admin: Can delete members<br>
 	{% endif %}
 	
-<p> <a href="{% url 'teammembers:teammembers-delete' object.id %}">Delete</a></p>
-<input type='submit' value='Save'/>
+<input type='submit' name='del_button' value='Delete'/>
+<input type='submit' name='save_button' value='Save'/>
 
 
 </form>
